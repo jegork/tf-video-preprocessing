@@ -1,3 +1,7 @@
+<p align="right">
+    <a href="https://pypi.org/project/tf-video/"><img src="https://img.shields.io/pypi/v/tf-video"/></a>
+</p>
+
 # tf-video-preprocessing
 TensorFlow video preprocessing layers
 
@@ -19,16 +23,25 @@ So far, these are implemeted:
 - [ ] Random height
 - [ ] Random width
 
+## Install
+
+```sh
+pip install tf-video
+```
+
 ## Usage
 
-Include both using Sequential and Functional TF API, as you would normally do with image preprocessing layers
+Use both using Sequential and Functional TF API, as you would normally do with image preprocessing layers
 
 ```python
 import tensorflow as tf
 from tf_video import VideoRandomFlip, VideoRandomContrast
 
 input_video = ...
-model = tf.keras.models.Sequential([VideoRandomFlip('horizontal_and_vertical'), VideoRandomContrast(0.3)])
+model = tf.keras.models.Sequential([
+    VideoRandomFlip('horizontal_and_vertical'),
+    VideoRandomContrast(0.3)
+])
 
 aug = model(input_video)
 ```
